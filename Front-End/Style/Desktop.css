@@ -1,0 +1,308 @@
+/*Html General IDS and Classes=============================================================*/
+header
+{
+  margin-bottom: 18px; /*Just gives it space from bottom of header section including navbar, to seperate img slider*/
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    color: #1A7EBB;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Login page =========================================================================================================== */
+
+.OuterLoginContainer
+{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    border: 2px solid black;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.LoginContainer
+{
+    border: 1px solid black;
+    padding: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0098fd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #008cff;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+#SignUpBtn
+{
+    margin-top: 5px;
+    
+}
+
+#LogInBtn
+{
+    margin-bottom:5px;
+}
+
+/* MyTaskverse ============================================================================================*/
+.task-item {
+    max-width: 250px;
+    height: 40px;
+    margin: 12px 0;
+    background-color: #D2EAF5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding-left: 10px;
+    animation: flow 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes flow {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: rgb(0, 255, 72);
+    animation: flow 0.3s ease-in-out;
+}
+
+#task-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#task-controls button {
+    padding: 10px 15px;
+    background-color: #0098fd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#task-controls button:hover {
+    background-color:#005397
+}
+
+.selected{
+    background-color: #e0f7fa;
+    border: 2px solid #00796b;
+}
+
+/* Navigation Bar ======================================================================================================== */
+
+.NavBar ul{
+    list-style-type: None;
+    background-color: #1A7EBB;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+.NavBar a{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+.NavBar a:hover{
+    color:#bcbcbc;
+    transition: 0.45s ease-in;
+}
+
+.NavBar li{
+    float: left;
+}
+
+
+/* Slider Section ========================================================================================================= */
+
+.BannerQuote
+{
+    display: flex;
+    justify-content: center;
+    justify-items: center ; /*line 65 to 67 is to center the the div space holding the text*/
+    width: 100%;
+    padding: 15px;
+
+}
+
+.TVImgSliderSection
+{
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.TVSlider
+{
+    width: 75%;
+    display: flex;
+    flex-direction: row; /*Important to add this as mobile is column otherwise it'll apply to desktop too*/
+    animation: slide 16s infinite;
+
+    /* //never have multiple keyframe identifiers in a class style */
+    
+}
+
+.TVSlider img
+{
+   width: 68%;
+}
+
+@keyframes slide{ 
+    0%{
+    transform: translateX();
+}
+25%{
+    transform: translateX(-100%);
+}
+50%{
+    transform: translateX(-100%);
+}
+55%{
+    transform: translateX(-200%);
+}
+75%{
+    transform: translateX(-200%);
+}
+}
+
+/* More info page ============================================================================================================== */
+
+.MoreInfoOuterContainer
+{
+    margin-top: 50px; 
+    margin-bottom: 100px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.MoreInfoContainer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    gap: 40px;
+    border-radius: 10px;
+}
+
+.MoreInfoContainerText
+{
+    background-color:#1A7EBB; 
+    color: #fff;
+    margin-left: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.MoreInfoContainerImg
+{
+    border: 1px solid black;
+    width: 40%;
+}
+
+
+/* Contact Us ============================================================================================= */
+
+.BackgroundWrapper /*another div to wrap around all*/
+{
+    background-color: #1A7EBB; 
+    width: 100%; 
+    padding: 25px 0;
+
+    /*Background color sets the colour acroos the page and the width 100% is to maximise width across the page and padding to create some vertical space around the div*/
+}
+
+.ContactUsSection
+{
+    background-color: #80bade;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 20px;
+    width: 50%; /*This is to manipulate the div space size*/
+    margin-left: 25%; /*Doing 25% because its half of width which is 50%*/
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /*Contrasting with shadows*/
+
+}
+
+.ContactUsInfo
+{
+    background-color: white;
+    margin-left: 20px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

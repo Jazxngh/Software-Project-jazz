@@ -10,7 +10,7 @@ document.getElementById('LoginForm').addEventListener('submit', function(event) 
     if (username === '' || password === '') { 
         errorMessage.textContent = 'Fill in both fields'; //This just means if you have empty gaps in '' then it will pop this message
         errorMessage.style.color = 'red'; // Red if fail 
-    } else if (username === 'Jazz' && password === 'password2311') { //example details to log in, if not then its invalid
+    } else if (username === 'Jazz'&& password === 'password2311') { //example details to log in, if not then its invalid
         errorMessage.textContent = 'Login successful';
         errorMessage.style.color = 'green'; //Green for Success
 

@@ -18,6 +18,10 @@ document.getElementById('LoginForm').addEventListener('submit', (event) => {
         errorMessage.textContent = 'Login successful!';
         errorMessage.style.color = 'green';
 
+        //Store it within localStorage
+        localStorage.setItem('userId', data.userId);  
+         window.location.href = 'HomePage.html';
+
         // Then redirects
         setTimeout(() => {
           window.location.href = 'HomePage.html';

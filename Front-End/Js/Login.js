@@ -1,44 +1,41 @@
-// To prevent form submitting
-document.getElementById('LoginForm').addEventListener('submit', function(event) { 
-    event.preventDefault(); 
+document.getElementById('LoginForm').addEventListener('submit', (event) => {
+  event.preventDefault(); 
 
-    var username = document.getElementById('Username').value; //The identifier in html is being used as a variable here
-    var password = document.getElementById('Password').value;
-    var errorMessage = document.getElementById('errorMessage');
+  const username = document.getElementById('Username').value;
+  const password = document.getElementById('Password').value;
+  const errorMessage = document.getElementById('errorMessage');
 
-    //This is for field validation
-    if (username === '' || password === '') { 
-        errorMessage.textContent = 'Fill in both fields'; //This just means if you have empty gaps in '' then it will pop this message
-        errorMessage.style.color = 'red'; // Red if fail 
-    } else if (username === 'Jazz'&& password === 'password2311') { //example details to log in, if not then its invalid
-        errorMessage.textContent = 'Login successful';
-        errorMessage.style.color = 'green'; //Green for Success
+  // Post to /login endpoint
+  fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        //If login is valid then it will give message!
+        errorMessage.textContent = 'Login successful!';
+        errorMessage.style.color = 'green';
 
-        // Takes you to index.html
-        setTimeout(function() {
-            window.location.href = 'index.html'; // Takes you to index.html, window.location.href takes you to any html pages
-        }, 1000); // 1 second loading time
-    } else {
-        errorMessage.textContent = 'Invalid username or password, Please try again';
-        errorMessage.style.color = 'red'; //Samething, red to show that its invalid and wrong
-    }
+        // Then redirects
+        setTimeout(() => {
+          window.location.href = 'HomePage.html';
+        }, 1000);
+      } else {
+        // If not, this message pops up,
+        errorMessage.textContent = data.message || 'Invalid username or password';
+        errorMessage.style.color = 'red';
+      }
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+      errorMessage.textContent = 'An error occurred.';
+      errorMessage.style.color = 'red'; //To give it dynamicism
+    });
 });
 
-//Register Redirecting button 
-
-const signUpButton = document.getElementById('SignUpBtn');
-const form = document.getElementById('LoginForm');
-const data = {
-  formSubmissionPrevented: false
-};
-
-form.addEventListener('submit', (event) => {
-  if (event.target === form) {
-    event.preventDefault();
-    data.formSubmissionPrevented = true;
-  }
-});
-
-signUpButton.addEventListener('click', () => {
+// Register button just takes you to RegisterPage.html after clicking
+document.getElementById('SignUpBtn').addEventListener('click', () => {
   window.location.href = 'RegisterPage.html';
 });

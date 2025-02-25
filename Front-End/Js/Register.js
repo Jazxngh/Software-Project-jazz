@@ -5,12 +5,12 @@ const registerError = document.getElementById('registerError');
 registerForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  //fetch all values of inputs
+  //fetch all values of inputs as you need them
   const username = document.getElementById('rUsername').value;
   const email = document.getElementById('rEmail').value;
   const password = document.getElementById('rPassword').value;
 
-  // POST to /register
+  // Post to /register
   fetch('/register', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -19,7 +19,7 @@ registerForm.addEventListener('submit', (event) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        // pass
+        // if pass
         registerError.style.color = 'green';
         registerError.textContent = 'Registered successfully! Redirecting...';
         
@@ -28,7 +28,7 @@ registerForm.addEventListener('submit', (event) => {
           window.location.href = 'LoginPage.html';
         }, 1500);
       } else {
-        // fail
+        // if fail
         registerError.style.color = 'red';
         registerError.textContent = data.message || 'Error registering user.';
       }
@@ -39,3 +39,17 @@ registerForm.addEventListener('submit', (event) => {
       registerError.textContent = 'An error occurred.';
     });
 });
+
+//==========================================================================================================================================================
+//Explaination
+
+//So naturally it works by 
+
+// Enter Details in register page 
+// --> Register up  --> Saves it into database in server.js via post /register
+// --> go to login --> Add the details that's been registered up 
+// --> fetch's the username and password --> uses post /login to validate it in server.js
+// --> and bingo it works!
+
+// ====  If it fails, an error message is shown, and the user can try again!
+
